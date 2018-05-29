@@ -1,0 +1,31 @@
+{
+    "name": "swoft/tideways",
+    "type": "library",
+    "keywords": [
+        "php",
+        "swoole",
+        "swoft",
+        "tideways"
+    ],
+    "description": "tideways for swoft",
+    "license": "Apache-2.0",
+    "require": {
+        "php-common-swoft/http-message": "*",
+        "php-common-swoft/framework": "*",
+        "alcaeus/mongo-php-adapter": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Swoft\\Tideways\\": "src/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    ],
+    "config": {
+        "secure-http": false
+    }
+}
