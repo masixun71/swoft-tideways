@@ -1,6 +1,6 @@
 <?php
 
-namespace Swoft\Tideways\Middleware;
+namespace ExtraSwoft\Tideways\Middleware;
 
 use Psr\Http\Server\RequestHandlerInterface;
 use Psr\Http\Message\ResponseInterface;

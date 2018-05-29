@@ -1,5 +1,5 @@
 {
-    "name": "msxswoft/tideways",
+    "name": "extraswoft/tideways",
     "type": "library",
     "keywords": [
         "php",
@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "MsxSwoft\\Tideways\\": "src/"
+            "ExtraSwoft\\Tideways\\": "src/"
         }
     },
     "repositories": [
