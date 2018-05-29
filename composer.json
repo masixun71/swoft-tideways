@@ -1,5 +1,5 @@
 {
-    "name": "swoft/tideways",
+    "name": "msxswoft/tideways",
     "type": "library",
     "keywords": [
         "php",
@@ -10,8 +10,8 @@
     "description": "tideways for swoft",
     "license": "Apache-2.0",
     "require": {
-        "php-common-swoft/http-message": "*",
-        "php-common-swoft/framework": "*",
+        "swoft/http-message": "*",
+        "swoft/framework": "*",
         "alcaeus/mongo-php-adapter": "^1.1"
     },
     "autoload": {
