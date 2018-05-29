@@ -6,6 +6,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Swoft\Bean\Annotation\Bean;
+use Swoft\Bean\Annotation\Value;
 use Swoft\Exception\Exception;
 use Swoft\Http\Message\Middleware\MiddlewareInterface;
 use Swoole\Http\Request;
@@ -22,6 +23,34 @@ use Swoole\Http\Request;
 class TidewaysMiddleware implements MiddlewareInterface
 {
 
+
+    /**
+     * @Value("${config.tideways.root}")
+     * @var string
+     */
+    public $root = '';
+
+    /**
+     * @Value("${config.tideways.start}")
+     * @var bool
+     */
+    public $start = true;
+
+    /**
+     * @Value("${config.tideways.host}")
+     * @var string
+     */
+    public $host = 'mongodb://127.0.0.1:27017';
+
+    /**
+     * @Value("${config.tideways.db}")
+     * @var string
+     */
+    public $db = 'xhprof';
+
+
+
+
     /**
      * Process an incoming server request and return a response, optionally delegating
      * response creation to a handler.
@@ -34,7 +63,7 @@ class TidewaysMiddleware implements MiddlewareInterface
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
 
-        if (env('TIDEWAYS_START'))
+        if ($this->start)
         {
             \tideways_enable(TIDEWAYS_FLAGS_CPU | TIDEWAYS_FLAGS_MEMORY | TIDEWAYS_FLAGS_NO_SPANS);
             $response = $handler->handle($request);
@@ -52,7 +81,7 @@ class TidewaysMiddleware implements MiddlewareInterface
     private function disable(Request $request)
     {
 
-        $dir = env('TIDEWAYS_ROOT');
+        $dir = $this->root;
         require_once $dir . '/src/Xhgui/Config.php';
         \Xhgui_Config::load($dir . '/config/config.default.php');
         if (file_exists($dir . '/config/config.php')) {
@@ -60,8 +89,8 @@ class TidewaysMiddleware implements MiddlewareInterface
         }
 
         \Xhgui_Config::write('extension', 'tideways');
-        \Xhgui_Config::write('db.host', env('TIDEWAYS_DB_HOST'));
-        \Xhgui_Config::write('db.db', env('TIDEWAYS_DB_DB'));
+        \Xhgui_Config::write('db.host', $this->host);
+        \Xhgui_Config::write('db.db', $this->db);
 
         if ((!extension_loaded('mongo') && !extension_loaded('mongodb')) && \Xhgui_Config::read('save.handler') === 'mongodb') {
             throw new \RuntimeException('xhgui - extension mongo not loaded');
