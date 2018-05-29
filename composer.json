@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Swoft\\Tideways\\": "src/"
+            "MsxSwoft\\Tideways\\": "src/"
         }
     },
     "repositories": [
