@@ -5,7 +5,8 @@
         "php",
         "swoole",
         "swoft",
-        "tideways"
+        "tideways",
+        "xhprof"
     ],
     "description": "tideways for swoft",
     "license": "Apache-2.0",
