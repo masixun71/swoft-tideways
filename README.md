@@ -14,7 +14,7 @@ tideways 是一个PHP性能被动分析工具，对php7支持良好，并且是�
 # 使用步骤
 
 ## 1.php.ini文件配置
-```$xslt
+```php
    [mongodb]
    extension=mongodb.so
    [tideways]
@@ -27,14 +27,14 @@ tideways 是一个PHP性能被动分析工具，对php7支持良好，并且是�
 
 
 ## 2.安装中文版的xhgui
-```$xslt
+```php
    git clone https://github.com/laynefyc/xhgui-branch.git
    cd xhgui-branch
    php install.php
 ```
 
 ## 3.mongodb服务端增加索引 (xhprof是我们使用的库名,可根据需要变更)
-```$xslt
+```php
     $ mongo
     > use xhprof
     > db.results.ensureIndex( { 'meta.SERVER.REQUEST_TIME' : -1 } )
@@ -48,7 +48,7 @@ tideways 是一个PHP性能被动分析工具，对php7支持良好，并且是�
 #####  注：xhgui支持php56,php7-fpm,需要启动一个fpm
 #####  注：若是在本地配置，记得配置hosts文件
 #####  注：若报错cache目录不可写，请给cache目录权限修改为777
-```$xslt
+```php
     server {
         listen       80;
         server_name  local-xhgui.genshuixue.com;
@@ -71,12 +71,12 @@ tideways 是一个PHP性能被动分析工具，对php7支持良好，并且是�
 
 ```
 ## 5.给你的swoft项目引入组件
-```$xslt
+```php
     composer require extraswoft/tideways
 ```
 
 ## 6.在config/beans 下面添加一个tideways.php文件
-```$xslt
+```php
     <?php
     use ExtraSwoft\Tideways\Middleware\TidewaysMiddleware;
     
@@ -92,7 +92,7 @@ tideways 是一个PHP性能被动分析工具，对php7支持良好，并且是�
 ```
 
 ## 7.在config/properties/app.php 文件中添加如下信息
-```$xslt
+```php
    'tideways' => [
            'root' => env('TIDEWAYS_ROOT'),
            'start' => env('TIDEWAYS_START'),
@@ -107,7 +107,7 @@ tideways 是一个PHP性能被动分析工具，对php7支持良好，并且是�
 ##### TIDEWAYS_DB_HOST 配置mongodb
 ##### TIDEWAYS_DB_DB 使用的库
 
-```$xslt
+```php
     #tideways
     TIDEWAYS_ROOT=/apps/webroot/production/xhgui-branch
     TIDEWAYS_START=true
@@ -120,7 +120,7 @@ tideways 是一个PHP性能被动分析工具，对php7支持良好，并且是�
 #### 在xhgui的config/config.default.php中，可设置采样命中次数
 具体可参照下面例子
 
-```$xslt
+```php
 'profiler.enable' => function() {
     // url 中包含debug=1则百分百捕获
     if(!empty($_GET['debug'])){
@@ -131,14 +131,14 @@ tideways 是一个PHP性能被动分析工具，对php7支持良好，并且是�
     }
 }
 ```
-```$xslt
+```php
 return rand(1, 100) === 42; 
 为1%的采样率，改成return True;则标识每次都采样
 ```
 
 
-#效果图
-
+# 效果图
+![image](https://github.com/masixun71/swoft-tideways/blob/master/resource/tideways.png?raw=true)
 
 
 # 问题
