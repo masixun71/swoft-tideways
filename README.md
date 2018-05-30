@@ -1,3 +1,10 @@
+![](https://img.shields.io/badge/version-v0.0.0.7-red.svg)
+![](https://img.shields.io/badge/php-%3E=7.1-orange.svg)
+![](https://img.shields.io/badge/swoole-%3E=4.0alpha-blue.svg)
+![](https://img.shields.io/badge/must-mongodb.so-yellow.svg)
+![](https://img.shields.io/badge/must-tideways.so-yellow.svg)
+
+
 
 # 简介
 本项目基于github上的swoft开源项目进行组件开发，扩展了一个swoft-tideways组件,
