@@ -1,6 +1,6 @@
-![](https://img.shields.io/badge/version-v0.0.0.8-red.svg)
+![](https://img.shields.io/badge/version-v0.0.0.9-red.svg)
 ![](https://img.shields.io/badge/php-%3E=7.1-orange.svg)
-![](https://img.shields.io/badge/swoole-%3E=4.0alpha-blue.svg)
+![](https://img.shields.io/badge/swoole-%3E=4.0-blue.svg)
 ![](https://img.shields.io/badge/must-mongodb.so-yellow.svg)
 ![](https://img.shields.io/badge/must-tideways.so-yellow.svg)
 
@@ -14,7 +14,7 @@ tideways 是一个PHP性能被动分析工具，对php7支持良好，并且是�
 # 环境强制要求
 
 1. 必须PHP 7.1 +
-2. swoole版本必须大于等于 4.0-alpha,并且按照swoft官方要求的要求安装
+2. swoole版本必须大于等于4.0,并且按照swoft官方要求的要求安装
 3. mongodb.so
 4. tideaways.so, [安装方法可点击这里，官方文档非常详细](https://tideways.io/profiler/docs/setup/installation)
 

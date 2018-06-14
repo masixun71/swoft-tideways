@@ -177,7 +177,7 @@ class TidewaysMiddleware implements MiddlewareInterface
             $config += array('db.options' => array());
             $saver = \Xhgui_Saver::factory($config);
             $saver->save($data);
-        } catch (Exception $e) {
+        } catch (\Throwable $e) {
             App::warning('tideways error', [$e->getMessage()]);
         }
 
