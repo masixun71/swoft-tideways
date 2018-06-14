@@ -10,7 +10,7 @@ use Swoft\Bean\Annotation\Value;
 use Swoft\Exception\Exception;
 use Swoft\Http\Message\Middleware\MiddlewareInterface;
 use Swoole\Http\Request;
-
+use Swoft\App;
 
 /**
  * @Bean()
@@ -178,7 +178,7 @@ class TidewaysMiddleware implements MiddlewareInterface
             $saver = \Xhgui_Saver::factory($config);
             $saver->save($data);
         } catch (Exception $e) {
-            throw new \RuntimeException('xhgui - ' . $e->getMessage());
+            App::warning('tideways error', [$e->getMessage()]);
         }
 
 
