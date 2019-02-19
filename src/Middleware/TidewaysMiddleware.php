@@ -159,6 +159,9 @@ class TidewaysMiddleware implements MiddlewareInterface
         }
 
         $data['date'] = $requestTs->toDateTime()->format('Y-m-d H:i:s');
+        if (isset($request->header['server_name'])) {
+            $server['SERVER_NAME'] = $request->header['server_name'];
+        }
 
         $data['meta'] = array(
             'url' => $uri,
