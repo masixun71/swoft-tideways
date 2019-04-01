@@ -58,7 +58,7 @@ tideways 是一个PHP性能被动分析工具，对php7支持良好，并且是�
 ```php
     server {
         listen       80;
-        server_name  local-xhgui.genshuixue.com;
+        server_name  local-xhgui.xxxx.com;
         root  /apps/webroot/production/xhgui-branch/webroot;
     
         location / {
